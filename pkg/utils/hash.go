@@ -2,15 +2,14 @@ package utils
 
 import (
 	"crypto/sha1"
-	"fmt"
 	"io"
 	"os"
 )
 
-func HashIsEqual(path string, hash string) (eq bool, err error) {
+func HashIsEqual(path string, hash string) (eq bool) {
 	file, err := os.Open(path)
 	if err != nil {
-		return false, fmt.Errorf("error opening file: %s", err)
+		return false
 	}
 	defer file.Close()
 
@@ -18,12 +17,12 @@ func HashIsEqual(path string, hash string) (eq bool, err error) {
 
 	_, err = io.Copy(h, file)
 	if err != nil {
-		return false, fmt.Errorf("error copying bytes: %s", err)
+		return false
 	}
 
 	if string(h.Sum(nil)) != hash {
-		return false, nil
+		return false
 	}
 
-	return true, nil
+	return true
 }
