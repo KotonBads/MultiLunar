@@ -1,4 +1,4 @@
-module github.com/KotonBads/MultiLunar
+module github.com/KotonBads/multilunar
 
 go 1.21.9
 
