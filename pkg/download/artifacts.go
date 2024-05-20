@@ -35,7 +35,7 @@ func DownloadArtifacts(data api.LaunchMeta, path string) (failures int, err erro
 
 			err = utils.DownloadFile(out, artifact.Url, time.Second*30)
 			if err != nil {
-				log.Printf("[WARN] Error downloading artifact : %s\n", artifact.Name)
+				log.Printf("[WARN] Error downloading [%s] : %s\n", artifact.Name, err)
 				failed = append(failed, idx)
 				failures++
 				return
@@ -65,6 +65,8 @@ func DownloadArtifacts(data api.LaunchMeta, path string) (failures int, err erro
 				log.Printf("[WARN] Error downloading artifact : %s\n", artifact.Name)
 				return
 			}
+
+			log.Printf("[INFO] Downloaded artifact : %s\n", artifact.Name)
 			failures--
 		}
 	}
