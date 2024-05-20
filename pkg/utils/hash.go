@@ -21,9 +21,5 @@ func HashIsEqual(path string, hash string) (eq bool) {
 		return false
 	}
 
-	if fmt.Sprintf("%x", h.Sum(nil)) != hash {
-		return false
-	}
-
-	return true
+	return fmt.Sprintf("%x", h.Sum(nil)) == hash
 }
