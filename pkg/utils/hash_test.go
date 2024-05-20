@@ -10,8 +10,8 @@ func TestHash(t *testing.T) {
 	assert.Equal(t,
 		true,
 		HashIsEqual(
-			"unzip.go",
-			"6eb8f2e194d3dae061acf60267eff31599a11efd",
+			"ichor.go",
+			"3ff67992e20ee313e4145e8a00a093cd2e2e31d3",
 		),
 	)
 }
