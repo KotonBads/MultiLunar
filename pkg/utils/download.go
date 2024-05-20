@@ -5,11 +5,12 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"path/filepath"
 	"time"
 )
 
 func DownloadFile(path string, url string, timeout time.Duration) error {
-	err := os.MkdirAll(path, os.ModePerm)
+	err := os.MkdirAll(filepath.Base(path), os.ModePerm)
 	if err != nil {
 		return fmt.Errorf("error creating dirs: %s", err)
 	}
