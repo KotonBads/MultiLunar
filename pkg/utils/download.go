@@ -10,7 +10,7 @@ import (
 )
 
 func DownloadFile(path string, url string, timeout time.Duration) error {
-	err := os.MkdirAll(filepath.Base(path), os.ModePerm)
+	err := os.MkdirAll(filepath.Dir(path), os.ModePerm)
 	if err != nil {
 		return fmt.Errorf("error creating dirs: %s", err)
 	}
