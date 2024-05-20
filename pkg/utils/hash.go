@@ -2,6 +2,7 @@ package utils
 
 import (
 	"crypto/sha1"
+	"fmt"
 	"io"
 	"os"
 )
@@ -20,7 +21,7 @@ func HashIsEqual(path string, hash string) (eq bool) {
 		return false
 	}
 
-	if string(h.Sum(nil)) != hash {
+	if fmt.Sprintf("%x", h.Sum(nil)) != hash {
 		return false
 	}
 
