@@ -26,7 +26,7 @@ func DownloadFile(path string, url string, timeout time.Duration) error {
 
 	resp, err := client.Get(url)
 	if err != nil {
-		return fmt.Errorf("error in request: %s", err)
+		return fmt.Errorf("error sending request: %s", err)
 	}
 	defer resp.Body.Close()
 
