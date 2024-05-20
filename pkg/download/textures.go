@@ -23,7 +23,7 @@ func DownloadTextures(data api.LaunchMeta, path string) (failures int, err error
 	var failed []int
 	failures = 0
 
-	response, err := http.Get(data.Textures.BaseURL)
+	response, err := http.Get(data.Textures.IndexURL)
 	if err != nil {
 		return 0, fmt.Errorf("error sending request: %s", err)
 	}
