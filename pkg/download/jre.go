@@ -16,7 +16,7 @@ func DownloadJRE(data api.LaunchMeta, path string) error {
 		return fmt.Errorf("error: data.Success is false")
 	}
 
-	out := filepath.Join(path, data.Jre.ExecutablePathInArchive[0]+data.Jre.Download.Extension)
+	out := filepath.Join(path, data.Jre.ExecutablePathInArchive[0]+"."+data.Jre.Download.Extension)
 
 	err := utils.DownloadFile(out, data.Jre.Download.URL, time.Second*120)
 	if err != nil {
