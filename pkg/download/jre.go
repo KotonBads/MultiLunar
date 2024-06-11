@@ -2,6 +2,7 @@ package download
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"path/filepath"
 	"time"
@@ -22,6 +23,7 @@ func DownloadJRE(data api.LaunchMeta, path string) error {
 	if err != nil {
 		return fmt.Errorf("error downloading jre: %s", err)
 	}
+	log.Printf("[INFO] Downloaded JRE")
 
 	file, err := os.Open(out)
 	if err != nil {
