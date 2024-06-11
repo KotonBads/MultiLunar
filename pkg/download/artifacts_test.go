@@ -18,7 +18,7 @@ func TestDownloadArtifact(t *testing.T) {
 	meta, err := body.FetchLaunchMeta()
 	assert.Equal(t, nil, err)
 
-	status, err := DownloadArtifacts(meta, "../../temp/")
+	status, err := DownloadArtifacts(meta, "../../temp/artifacts")
 	assert.Equal(t, nil, err)
 	assert.Equal(t, 0, status)
 }

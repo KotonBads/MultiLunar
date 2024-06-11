@@ -18,6 +18,6 @@ func TestJRE(t *testing.T) {
 	meta, err := body.FetchLaunchMeta()
 	assert.Equal(t, nil, err)
 
-	err = DownloadJRE(meta, "../../temp/")
+	err = DownloadJRE(meta, "../../temp/jre")
 	assert.Equal(t, nil, err)
 }

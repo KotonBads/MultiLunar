@@ -18,10 +18,14 @@ func TestUnpackNatives(t *testing.T) {
 	meta, err := body.FetchLaunchMeta()
 	assert.Equal(t, nil, err)
 
-	status, err := DownloadArtifacts(meta, "../../temp/")
+	status, err := DownloadArtifacts(meta, "../../temp/artifacts")
 	assert.Equal(t, nil, err)
 	assert.Equal(t, 0, status)
 
-	err = UnpackNatives(meta, "../../temp/natives")
+	out, err := GetNativesDir(body, "../../temp/natives")
+	assert.Equal(t, nil, err)
+	assert.Equal(t, "../../temp/natives/legacy", out)
+
+	err = UnpackNatives(meta, "../../temp/artifacts", out)
 	assert.Equal(t, nil, err)
 }
