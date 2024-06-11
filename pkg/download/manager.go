@@ -13,7 +13,7 @@ file structure:
 
 	instances
 	|-instance
-	|	|-instance specific artifact(s)
+	|	|-instance specific artifact(s) [later on]
 	|
 	|-common
 		|-textures
@@ -43,4 +43,30 @@ func GetNativesDir(data api.LaunchBody, path string) (string, error) {
 	}
 
 	return out, nil
+}
+
+func DownloadAll(data api.LaunchMeta, path string) (map[string]int, error) {
+	failures := map[string]int {
+		"artifacts": 0,
+		"textures": 0,
+	}
+
+	f1, err := DownloadArtifacts(data, filepath.Join(path, "artifacts"))
+	if err != nil {
+		failures["artifacts"] = f1
+		return failures, err
+	}
+
+	f2, err := DownloadTextures(data, filepath.Join(path, "textures"))
+	if err != nil {
+		failures["artifacts"] = f2
+		return failures, err
+	}
+
+	err = DownloadJRE(data, filepath.Join(path, "jre"))
+	if err != nil {
+		return failures, err
+	}
+
+	return failures, err
 }
