@@ -4,10 +4,10 @@ import "testing"
 
 func TestFetchMeta(t *testing.T) {
 	launchbody := LaunchBody{
-		OS: "linux",
+		OS:      "linux",
 		Version: "1.8.9",
-		Arch: "x64",
-		Module: "forge",
+		Arch:    "x64",
+		Module:  "forge",
 	}
 
 	res, err := launchbody.FetchLaunchMeta()

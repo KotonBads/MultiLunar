@@ -38,7 +38,7 @@ func DownloadTextures(data api.LaunchMeta, path string) (failures int, err error
 
 	for idx, val := range index {
 		wg.Add(1)
-		go func (idx int, texture string)  {
+		go func(idx int, texture string) {
 			defer wg.Done()
 
 			// cols[0] -> file path

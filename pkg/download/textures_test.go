@@ -9,10 +9,10 @@ import (
 
 func TestDownloadTextures(t *testing.T) {
 	body := api.LaunchBody{
-		OS: "linux",
+		OS:      "linux",
 		Version: "1.8.9",
-		Module: "forge",
-		Arch: "x64",
+		Module:  "forge",
+		Arch:    "x64",
 	}
 
 	meta, err := body.FetchLaunchMeta()

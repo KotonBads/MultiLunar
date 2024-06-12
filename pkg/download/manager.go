@@ -46,9 +46,9 @@ func GetNativesDir(data api.LaunchBody, path string) (string, error) {
 }
 
 func DownloadAll(data api.LaunchMeta, path string) (map[string]int, error) {
-	failures := map[string]int {
+	failures := map[string]int{
 		"artifacts": 0,
-		"textures": 0,
+		"textures":  0,
 	}
 
 	f1, err := DownloadArtifacts(data, filepath.Join(path, "artifacts"))
