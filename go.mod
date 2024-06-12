@@ -1,6 +1,6 @@
 module github.com/KotonBads/MultiLunar
 
-go 1.21.9
+go 1.22.0
 
 require (
 	github.com/c4milo/unpackit v1.0.0
